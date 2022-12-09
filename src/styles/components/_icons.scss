@@ -1,0 +1,22 @@
+.icon {
+	height: 1.125rem;
+	width: 1.125rem;
+	display: block;
+	flex-shrink: 0;
+	fill: var(--muted);
+	transition:
+		fill var(--duration-sm),
+		transform var(--duration-sm),
+		stroke var(--duration-sm);
+}
+
+.icon-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.icon--lg {
+	width: 1.375rem;
+	height: 1.375rem;
+}

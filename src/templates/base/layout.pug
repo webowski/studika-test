@@ -1,0 +1,28 @@
+include mixins.pug
+- var data = require('./data.json')
+block variables
+
+<!doctype html>
+<html lang="#{data.lang}" data-theme="light">
+<head>
+	<meta charset="utf-8">
+	<title>#{title}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#0656B4">
+	include ../partials/head-scripts.pug
+</head>
+<body>
+
+	<div class="wrap">
+		include ../partials/header.pug
+
+		<main class="main">
+			block main
+		</main>
+
+		include ../partials/footer.pug
+	</div>
+
+	include ../partials/footer-scripts.pug
+</body>
+</html>

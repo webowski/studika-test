@@ -1,0 +1,27 @@
+.pill {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 5px 4px 16px;
+	background-color: var(--primary);
+	border-radius: 40px;
+	gap: 4px;
+	color: var(--inverse);
+	font-size: .875rem;
+	line-height: 1.375rem;
+}
+
+.pill__remove {
+	padding: 9px;
+	cursor: pointer;
+}
+
+.pill__remove:hover .icon--cross {
+	background-color: var(--muted);
+}
+
+.pill__remove .icon--cross {
+	width: .875rem;
+	height: .875rem;
+	background-color: var(--inverse);
+	mask-image: url('../images/icons/cross.svg');
+}

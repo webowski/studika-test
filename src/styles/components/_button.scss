@@ -1,0 +1,40 @@
+.button {
+	width: auto;
+	max-width: 100%;
+	padding: 1rem 1.125rem;
+	display: inline-flex;
+	justify-content: center;
+	border: 1px solid transparent;
+	appearance: none;
+	background: var(--primary) none;
+	border-radius: var(--radius-sm);
+	color: var(--inverse);
+	font-size: .75rem;
+	line-height: 1.333;
+	font-family: var(--fontExtra);
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: .16em;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	white-space: nowrap;
+	transition:
+		background-color var(--duration-sm),
+		border-color var(--duration-sm),
+		color var(--duration-sm),
+		opacity var(--duration-sm);
+}
+
+.button:hover {
+	@include mediaUp(md) {
+		opacity: .9;
+	}
+}
+
+.button:active {
+	@include mediaUp(md) {
+		opacity: 1;
+	}
+}

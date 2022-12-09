@@ -1,0 +1,38 @@
+.form-input {
+	width: 100%;
+	height: auto;
+	padding: 12px 24px;
+	border: 0;
+	display: block;
+	background: var(--bg) none;
+	box-shadow: none;
+	border-radius: 48px;
+	transition:
+		background-color var(--duration-lg),
+		box-shadow var(--duration-lg),
+		border-color var(--duration-lg),
+		color var(--duration-lg);
+	color: var(--major);
+	font-size: .875rem;
+	line-height: 1.57;
+	font-family: inherit;
+	font-weight: 400;
+
+	@include placeholder() {
+		color: var(--minor);
+		text-align: center;
+	}
+}
+
+.form-input:focus {
+	box-shadow: inset 0 0 0 2px var(--primary-400);
+	background-color: var(--bg-light);
+
+	@include placeholder() {
+		text-align: left;
+	}
+}
+
+.form-input:focus-within {
+	outline: none;
+}

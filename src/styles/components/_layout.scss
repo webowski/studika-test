@@ -1,0 +1,17 @@
+html {
+	color-scheme: light;
+
+	[data-theme=dark] {
+		color-scheme: dark;
+	}
+}
+
+body {
+	background-color: var(--bg);
+}
+
+.wrap {
+	min-height: 100vh;
+	overflow-x: hidden;
+	position: relative;
+}

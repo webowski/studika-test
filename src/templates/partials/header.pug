@@ -1,0 +1,51 @@
+<header class="header">
+	<div class="header__container">
+
+		<button class="nav-mobile-opener">
+			+icon('hamburger')
+		</button>
+
+		<a href="" class="logo header__logo" aria-label="logo">
+			<img src=#{require('~/images/logo.svg')} alt="#{title}">
+		</a>
+
+		include header-dropdown
+
+		<div class="search-form header__search">
+			+icon("search").search-form__icon
+			<input type="text" class="form-input" placeholder="Учебное заведение, специальность или профессия">
+		</div>
+
+		<div class="user-panel">
+			<div class="favorites">
+				<div class="favorites__icon">
+					+icon("favorite")
+				</div>
+				<div class="favorites__count">1</div>
+			</div>
+
+			<a href="" class="user">
+				<div class="user__name">Екатерина</div>
+				<img src=#{require('~/media/avatar.jpg')} class="user__image" alt="">
+			</a>
+		</div>
+
+		<nav class="nav-main header__nav">
+			<div class="nav-main__left is-hidden">
+				+icon("chevron")
+			</div>
+			<div class="nav-main__scroll">
+				<ul class="nav-main__list">
+					each item in data.nav
+						<li class="nav-main__item#{item.url === currentUrl ? ' is-current' : ''}">
+							<a href="#{item.url}">#{item.title}</a>
+						</li>
+				</ul>
+			</div>
+			<div class="nav-main__right">
+				+icon("chevron")
+			</div>
+		</nav>
+
+	</div>
+</header>

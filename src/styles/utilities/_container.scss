@@ -1,0 +1,7 @@
+.container {
+	@include container;
+}
+
+.container-wide {
+	@include container(wide);
+}

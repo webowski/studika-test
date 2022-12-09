@@ -1,0 +1,54 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html {
+	text-size-adjust: 100%;
+    text-rendering: optimizelegibility;
+	-webkit-font-smoothing: subpixel-antialiased;
+	cursor: default;
+}
+
+body {
+	margin: 0;
+	// -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+svg {
+	display: inline-block;
+}
+
+picture,
+picture img {
+	display: block;
+}
+
+input,
+textarea,
+button {
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	text-transform: inherit;
+	color: inherit;
+}
+
+button {
+	touch-action: manipulation;
+}
+
+:focus {
+	outline: none;
+}
+
+:focus-visible {
+	border-radius: var(--radius-xs);
+	outline: 4px solid rgba(50,151,211,.3);
+}

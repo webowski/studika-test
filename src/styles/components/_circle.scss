@@ -1,0 +1,15 @@
+.circle {
+	--circleSize: 2rem;
+	width: var(--circleSize);
+	height: var(--circleSize);
+	border: 1px solid var(--muted);
+	border-radius: var(--circleSize);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	transition:
+		color var(--duration-md),
+		border-color var(--duration-md),
+		background-color var(--duration-md);
+}

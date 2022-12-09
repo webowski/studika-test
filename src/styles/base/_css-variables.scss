@@ -1,0 +1,71 @@
+// Custom properties
+// ---------------------
+:root {
+	// Text
+	--fontMain:             #{$fontSans};
+	--fontExtra:            #{$fontExtra};
+	--fontSize:             .9375rem;
+	--lineHeight:           1.6;
+
+	@include mediaUp(md) {
+		--fontSize:             1rem;
+		--lineHeight:           1.875;
+	}
+
+	// Color
+	--primary:              #{$blue};
+	--primary-400:          #{$blue-400};
+	--primary-200:          #{$blue-200};
+	--accent:               #{$yellow};
+	--danger:               #{$red};
+	--major:                #{$gray-800};
+	--minor:                #{$gray-600};
+	--muted:                #{$gray-400};
+	--light:                #{$gray-300};
+	--lighter:              #{$gray-200};
+	--lightest:             #{$gray-100};
+	--disabled:             #{$gray-300};
+	--inverse:              #{$white};
+	--bg:                   #{$gray-100};
+	--bg-light:             #{$white};
+	--border:               #{$gray-300};
+
+	// Shadow
+	--shadow:               #{0px 7px 38px rgba(44, 61, 104, 0.25)};
+
+	// Dimensions
+	--containerMax:         1280px;
+	--gap:                  clamp(1rem, 2.75vw, 2rem);
+	--sidePadding:          var(--gap);
+
+	// Shape
+	--radius-xs:            2px;
+	--radius-sm:            5px;
+	--radius-md:            10px;
+
+	// Animation
+	--duration-sm:          .12s;
+	--duration-md:          .2s;
+	--duration-lg:          .3s;
+	--duration-xl:          .6s;
+	--duration-xxl:         1s;
+}
+
+[data-theme="dark"] {
+	--brand:                #{$blue};
+	--accent:               #{$yellow};
+	--danger:               #{$red};
+	--major:                #{$gray-200};
+	--minor:                #{$gray-400};
+	--muted:                #{$gray-400};
+	--light:                #{$gray-600};
+	--lighter:              #{$gray-600};
+	--lightest:             #{$gray-700};
+	--disabled:             #{$gray-400};
+	--bg:                   #{$gray-700};
+	--bg-light:             #{$gray-800};
+	--border:               #{$gray-600};
+
+	// Shadow
+	--shadow:               #{0px 7px 38px rgba($gray-900, .65)};
+}
