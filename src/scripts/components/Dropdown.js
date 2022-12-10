@@ -309,7 +309,9 @@ class Dropdown {
 
 	#setSummary() {
 		const summaryArray = this.values.map((i) => i.name)
-		this.$summary.innerHTML = summaryArray.join(', ')
+		const summary = summaryArray.join(', ')
+		this.$summary.innerHTML = summary
+		this.$summary.setAttribute('title', summary)
 	}
 
 	#manageButton() {
