@@ -99,8 +99,9 @@ class Dropdown {
 	#setupOption($option, itemData) {
 		$option.dataset.title = itemData.name
 		$option.dataset.id = itemData.id
+		$option.dataset.type = this.#getType(itemData)
 
-		let $title = this.#createOptionElement(
+		const $title = this.#createOptionElement(
 			itemData.name,
 			'dropdown__option-title'
 		)
@@ -118,7 +119,7 @@ class Dropdown {
 
 		$option.addEventListener('click', () => {
 			if ($option.classList.contains('is-selected')) {
-				this.#removeValue(itemData.id)
+				this.#removeValue(itemData)
 			} else {
 				this.#addValue(itemData)
 			}
@@ -128,13 +129,13 @@ class Dropdown {
 	#addValue(itemData) {
 		this.values.push(itemData)
 		this.#addPill(itemData)
-		this.#markOption(itemData.id)
+		this.#markOption(itemData)
 	}
 
-	#removeValue(id) {
-		this.values = this.values.filter((v) => v.id !== id)
-		this.#removePill(id)
-		this.#unmarkOption(id)
+	#removeValue(itemData) {
+		this.values = this.values.filter((v) => v.id !== itemData.id)
+		this.#removePill(itemData)
+		this.#unmarkOption(itemData)
 	}
 
 	getValues() {
@@ -181,15 +182,17 @@ class Dropdown {
 		})
 	}
 
-	#markOption(id) {
+	#markOption(itemData) {
+		const type = this.#getType(itemData)
 		this.$optionsContainer
-			.querySelector(`[data-id="${id}"]`)
+			.querySelector(`[data-id="${itemData.id}"][data-type="${type}"]`)
 			.classList.add('is-selected')
 	}
 
-	#unmarkOption(id) {
+	#unmarkOption(itemData) {
+		const type = this.#getType(itemData)
 		this.$optionsContainer
-			.querySelector(`[data-id="${id}"]`)
+			.querySelector(`[data-id="${itemData.id}"][data-type="${type}"]`)
 			.classList.remove('is-selected')
 	}
 
@@ -202,6 +205,7 @@ class Dropdown {
 		const $pill = this.#createElement('pill')
 
 		$pill.dataset.id = itemData.id
+		$pill.dataset.type = this.#getType(itemData)
 
 		const $title = this.#createElement('pill__title', itemData.name)
 		const $remove = this.#createElement(
@@ -213,14 +217,17 @@ class Dropdown {
 		$pill.appendChild($remove)
 
 		$remove.addEventListener('click', () => {
-			this.#removeValue(itemData.id)
+			this.#removeValue(itemData)
 		})
 
 		return $pill
 	}
 
-	#removePill(id) {
-		this.$pills.querySelector(`[data-id="${id}"]`).remove()
+	#removePill(itemData) {
+		const type = this.#getType(itemData)
+		this.$pills
+			.querySelector(`[data-id="${itemData.id}"][data-type="${type}"]`)
+			.remove()
 	}
 
 	#createElement(className, innerHTML = '') {
@@ -239,6 +246,10 @@ class Dropdown {
 
 	#getAreaName(state_id) {
 		return this.data.find((x) => x.id === state_id).name
+	}
+
+	#getType(itemData) {
+		return itemData.hasOwnProperty('type') ? itemData.type : 'city'
 	}
 
 	#manageInput() {
