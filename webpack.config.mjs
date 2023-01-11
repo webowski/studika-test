@@ -68,6 +68,7 @@ export default {
 			{
 				test: /\.(png|jpg|jpeg|gif|svg)$/i,
 				resourceQuery: { not: [/inline/] },
+				exclude: /images[\\/]icons/,
 				type: 'asset/resource',
 				generator: {
 					filename: (pathData) => {
